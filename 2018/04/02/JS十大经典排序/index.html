@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>JS十大经典排序 | 周贺朋</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="周贺朋，简单，美好，奋发">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JS十大经典排序 | 周贺朋">
+    <meta name="twitter:description" content="周贺朋，简单，美好，奋发">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JS十大经典排序 | 周贺朋">
+    <meta property="og:description" content="周贺朋，简单，美好，奋发">
+
+    
+    <meta name="author" content="周贺朋">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="周贺朋" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2018/04/02/JS十大经典排序/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 周贺朋 的主页"><img src="/images/avatar.jpg" width="80" alt="周贺朋 logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 周贺朋">周贺朋</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">简单，美好，奋发</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"><p>一只爱幻想的程序员</p><p>走在前端进阶之路</p></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/#blog">Archives</a></li>
+            
+              <li class="navigation__item"><a href="/pagetimeAxis">黄金屋</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/timeAxis.html">时光轴</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">随记</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/aboutme.html">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/Zhou-Hepeng" title="GitHub" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-04-02T13:39:38.000Z" class="post-list__meta--date date">2018-04-02</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">JS十大经典排序</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序是一种简单的排序算法，它重复的走访要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来，走访数列的工作是重复的进行直到没有再需要交换，也就是说数列已经排序完成，这个算法的名字的由来是因为越小的元素会精油交换慢慢浮到数列的顶端。</p>
+<h4 id="1-初级版"><a href="#1-初级版" class="headerlink" title="1.初级版"></a>1.初级版</h4><pre><code>
+function bubbleSort(array) {
+    const length = array.length;
+    for (let i = 0; i < length; i++) {
+        for (let j = 0; j < length - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+           let temp = array[j + 1];
+                array[j + 1] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    return array;
+}
+</code></pre>
+
+<h4 id="2-改进版"><a href="#2-改进版" class="headerlink" title="2.改进版"></a>2.改进版</h4><p>设置一个标志性变量pos，用于记录每趟排序中最后一次进行交换的位置，由于pos位置之后的记录均已交换到位，故在进行下一趟排序是只要扫描到pos位置即可</p>
+<pre><code>
+function bubbleSort(array) {
+    let i = array.length - 1;
+    while (i > 0) {
+        let pos = 0;
+        for (let j = 0; j < i; j++) {
+            if (array[j] > array[j + 1]) {
+                pos = j;
+                let temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+        i = pos;
+    }
+    return array;
+}
+</code></pre>
+
+<h3 id="3-加强版"><a href="#3-加强版" class="headerlink" title="3.加强版"></a>3.加强版</h3><p>传统冒泡排序中的每一趟排序操作只能找到一个最大值或者最小值，我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一可以得到里那个个最终值（最大及最小），从而使排序趟数至少减少一半</p>
+<pre><code>
+function bubbleSort(array) {
+    let low = 0;
+    let high = array.length - 1;
+    while (low < high) {
+        for (let j = low; j < high; j++) {
+            if (array[j] > array[j + 1]) {
+                const temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+        --high;
+    }
+    return array;
+}
+</code></pre>
+
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>表现最稳定的排序算法之一，因为无论什么数据进去都是O(n2)的时间复杂度……所以用它的时候数据规模越小越好，唯一的好处就是不占用额外的内存空间，理论上将，选择排序可能也是平时排序一般人想到的最多的排序方法之一</p>
+<pre><code>
+function selectionSort(array) {
+    let length = array.length;
+    for (let i = 0; i < length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < length; j++) {
+            if (array[j] < array[minIndex]) {
+                minIndex = j;
+            }
+        }
+        let temp = array[i];
+        array[i] = array[minIndex];
+        array[minIndex] = temp;
+    }
+    return array;
+}
+</code></pre>
+
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但是它的原理却是最好理解的，它的工作原理是通过构建有序序列，对未排序的数据，在已排序的序列中从后向前扫描，找到相应的位置并插入</p>
+<h4 id="1-初级版-从后往前插"><a href="#1-初级版-从后往前插" class="headerlink" title="1.初级版 (从后往前插)"></a>1.初级版 (从后往前插)</h4><pre><code>
+function insertionSort(array) {
+    for (let i = 1; i < array.length; i++) {
+        let key = array[i];
+        let j = i - 1;
+        while (j >= 0 && array[j] > key) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = key;
+    }
+    return array;
+}
+</code></pre>
+
+<h4 id="2-升级版-基于二分法"><a href="#2-升级版-基于二分法" class="headerlink" title="2.升级版 (基于二分法)"></a>2.升级版 (基于二分法)</h4><pre><code>
+function insertionSort(array) {
+    for (let i = 1; i < array.length; i++) {
+        let key = array[i], left = 0, right = i - 1;
+        while (left <= right)="" {="" let="" middle="parseInt((left" +="" 2);="" if="" (key="" <="" array[middle])="" right="middle" -="" 1;="" }="" else="" left="middle" for="" (let="" j="i">= left; j--) {
+            array[j + 1] = array[j];
+        }
+        array[left] = key;
+    }
+    return array;
+}
+</=></code></pre>
+
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序的核心在于间隔序列的设定。既可以提前设定好间隔序列，也可以动态定义间隔序列。</p>
+<pre><code>
+function shellSort(array) {
+    let gap = 1;
+    while (gap < array.length / 5) {
+        gap = gap * 5 + 1;
+    }
+    for (gap; gap > 0; parseInt(gap / 5)) {
+        for (let i = gap; i < array.length; i++) {
+            const temp = array[i];
+            for (let j = i - gap; j >= 0 && array[j] > temp; j -= gap) {
+                array[j + gap] = array[j];
+            }
+            array[j + gap] = temp;
+        }
+    }
+    return array;
+}
+</code></pre>
+
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序是建立在归并操作的一种有效的排序算法，该算法是采用分治法的一个非常典型的应用。归并排序是一种稳定的排序算法，将已有序的子序列合并，等到一个完全有序的序列，即先使每个子序列有序，再使子序列段有序，若将两个有序表合并成一个有序表，称作2路合并</p>
+<pre><code>
+function mergeSort(array) {
+    if (array.length < 2) {
+        return array;
+    }
+    const middle = parseInt(array.length / 2);
+    const left = array.slice(0, middle);
+    const right = array.slice(middle);
+    return merge(test_run(left), test_run(right));
+}
+function merge(left, right) {
+    const newArray = [];
+    while (left.length && right.length) {
+        if (left[0] <= right[0])="" {="" newarray.push(left.shift());="" }="" else="" newarray.push(right.shift());="" while="" (left.length)="" (right.length)="" return="" newarray;="" <="" code=""></=></code></pre>
+
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序的基本思想是：通过一趟排序将待排记录分割成独立的两部分，其中一部分记录关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序</p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><pre><code>
+const quickSort = function (array) {
+    if (array.length <= 1)="" {="" return="" array;="" }="" const="" pivotindex="parseInt(array.length" 2);="" pivot="Number(array.splice(pivotIndex," 1));="" left="[];" right="[];" for="" (let="" i="0;" <="" array.length;="" i++)="" if="" (array[i]="" pivot)="" left.push(array[i]);="" else="" right.push(array[i]);="" quicksort(left).concat([pivot],="" quicksort(right));="" };="" code=""></=></code></pre>
+
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>其中 left = 0; right = array.length-1</p>
+<pre><code>
+function quickSort(array, left, right) {
+    if (left < right) {
+        let x = array[right], i = left - 1;
+        for (let j = left; j <= right;="" j++)="" {="" if="" (array[j]="" <="x)" i++;="" const="" temp="array[i];" array[i]="array[j];" array[j]="temp;" }="" quicksort(array,="" left,="" i="" -="" 1);="" +="" 1,="" right);="" return="" array;="" code=""></=></code></pre>
+
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>是指利用堆这种数据结构所涉及的一种排序算法，堆积是一个近似完全二叉树的结构，并满足堆积的性质：即子节点的键值或索引总是小于（或大于）它的父节点</p>
+<pre><code>
+function heapSort(array) {
+    let length = array.length;
+    for (let i = parseInt(array.length / 2) - 1; i >= 0; i--) {
+        heap(array, i, length);
+    }
+    for (let j = length - 1; j >= 1; j--) {
+        const temp = array[0];
+        array[0] = array[j];
+        array[j] = temp;
+        heap(array, 0, --length);
+    }
+    return array;
+}
+function heap(array, x, length) {
+    let l = 2 * x + 1, r = 2 * x + 2, largest = x;
+    if (l < length && array[l] > array[largest]) {
+        largest = l;
+    }
+    if (r < length && array[r] > array[largest]) {
+        largest = r;
+    }
+    if (largest != x) {
+        const temp = array[x];
+        array[x] = array[largest];
+        array[largest] = temp;
+        heap(array, largest, length);
+    }
+}
+</code></pre>
+
+<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>计数排序的核心在于输入的数据值转换为键存储在额外开辟的数组空间中，作为一种限行时间非要咋地的排序，计数排序要求输入的数据必须是由确定范围的整数。<br>计数排序是一种很稳定的排序算法，需要用到一个额外的数组C，其中第i个元素是待排序数组A中值等于i的元素的个数，然后根据数字C将A中的元素排到正确的位置上个，它只能对数组进行排序</p>
+<pre><code>
+function countSort(array) {
+    const newArray = [], C = [];
+    let min = array[0];
+    let max = array[0];
+    for (let i = 0; i < array.length; i++) {
+        if (min >= array[i]) {
+            min = array[i];
+        }
+        if (max <= array[i])="" {="" max="array[i];" }="" if="" (c[array[i]]="C[array[i]])" c[array[i]]++;="" else="" c[array[i]]="1;" for="" (let="" j="min;" <="" max;="" j++)="" c[j="" +="" 1]="(C[j" ||="" 0)="" (c[j]="" 0);="" k="array.length" -="" 1;="">= 0; k--) {
+        newArray[C[array[k]] - 1] = array[k];
+        C[array[k]]--;
+    }
+    return newArray;
+}
+</=></code></pre>
+
+<p>原文来自微信公众号前端大全中的《十大经典排序算法的 JS 版》</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/02/27/hello-world/" title="Hello World">Hello World</a></h2>
+                <p class="excerpt">
+                
+                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-02-27T07:16:43.000Z" class="post-list__meta--date date">2018-02-27</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/02/27/hello-world/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 周贺朋 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
