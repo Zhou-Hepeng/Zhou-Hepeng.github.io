@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -157,7 +157,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -332,7 +332,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="周贺朋">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -385,7 +385,6 @@
                  <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
-                 <span class="post-meta-divider">|</span>
              </span>
           
 
@@ -440,8 +439,7 @@
 
       
         
-          
-            <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序是一种简单的排序算法，它重复的走访要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来，走访数列的工作是重复的进行直到没有再需要交换，也就是说数列已经排序完成，这个算法的名字的由来是因为越小的元素会精油交换慢慢浮到数列的顶端。</p>
+          <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序是一种简单的排序算法，它重复的走访要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来，走访数列的工作是重复的进行直到没有再需要交换，也就是说数列已经排序完成，这个算法的名字的由来是因为越小的元素会精油交换慢慢浮到数列的顶端。</p>
 <h4 id="1-初级版"><a href="#1-初级版" class="headerlink" title="1.初级版"></a>1.初级版</h4><pre><code>
 function bubbleSort(array) {
     const length = array.length;
@@ -457,195 +455,13 @@ function bubbleSort(array) {
     return array;
 }
 </code></pre>
-
-<h4 id="2-改进版"><a href="#2-改进版" class="headerlink" title="2.改进版"></a>2.改进版</h4><p>设置一个标志性变量pos，用于记录每趟排序中最后一次进行交换的位置，由于pos位置之后的记录均已交换到位，故在进行下一趟排序是只要扫描到pos位置即可</p>
-<pre><code>
-function bubbleSort(array) {
-    let i = array.length - 1;
-    while (i > 0) {
-        let pos = 0;
-        for (let j = 0; j < i; j++) {
-            if (array[j] > array[j + 1]) {
-                pos = j;
-                let temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-        i = pos;
-    }
-    return array;
-}
-</code></pre>
-
-<h3 id="3-加强版"><a href="#3-加强版" class="headerlink" title="3.加强版"></a>3.加强版</h3><p>传统冒泡排序中的每一趟排序操作只能找到一个最大值或者最小值，我们考虑利用在每趟排序中进行正向和反向两遍冒泡的方法一可以得到里那个个最终值（最大及最小），从而使排序趟数至少减少一半</p>
-<pre><code>
-function bubbleSort(array) {
-    let low = 0;
-    let high = array.length - 1;
-    while (low < high) {
-        for (let j = low; j < high; j++) {
-            if (array[j] > array[j + 1]) {
-                const temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-        --high;
-    }
-    return array;
-}
-</code></pre>
-
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>表现最稳定的排序算法之一，因为无论什么数据进去都是O(n2)的时间复杂度……所以用它的时候数据规模越小越好，唯一的好处就是不占用额外的内存空间，理论上将，选择排序可能也是平时排序一般人想到的最多的排序方法之一</p>
-<pre><code>
-function selectionSort(array) {
-    let length = array.length;
-    for (let i = 0; i < length - 1; i++) {
-        let minIndex = i;
-        for (let j = i + 1; j < length; j++) {
-            if (array[j] < array[minIndex]) {
-                minIndex = j;
-            }
-        }
-        let temp = array[i];
-        array[i] = array[minIndex];
-        array[minIndex] = temp;
-    }
-    return array;
-}
-</code></pre>
-
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但是它的原理却是最好理解的，它的工作原理是通过构建有序序列，对未排序的数据，在已排序的序列中从后向前扫描，找到相应的位置并插入</p>
-<h4 id="1-初级版-从后往前插"><a href="#1-初级版-从后往前插" class="headerlink" title="1.初级版 (从后往前插)"></a>1.初级版 (从后往前插)</h4><pre><code>
-function insertionSort(array) {
-    for (let i = 1; i < array.length; i++) {
-        let key = array[i];
-        let j = i - 1;
-        while (j >= 0 && array[j] > key) {
-            array[j + 1] = array[j];
-            j--;
-        }
-        array[j + 1] = key;
-    }
-    return array;
-}
-</code></pre>
-
-<h4 id="2-升级版-基于二分法"><a href="#2-升级版-基于二分法" class="headerlink" title="2.升级版 (基于二分法)"></a>2.升级版 (基于二分法)</h4><pre><code>
-function insertionSort(array) {
-    for (let i = 1; i < array.length; i++) {
-        let key = array[i], left = 0, right = i - 1;
-        while (left <= right)="" {="" let="" middle="parseInt((left" +="" 2);="" if="" (key="" <="" array[middle])="" right="middle" -="" 1;="" }="" else="" left="middle" for="" (let="" j="i">= left; j--) {
-            array[j + 1] = array[j];
-        }
-        array[left] = key;
-    }
-    return array;
-}
-</=></code></pre>
-
-<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序的核心在于间隔序列的设定。既可以提前设定好间隔序列，也可以动态定义间隔序列。</p>
-<pre><code>
-function shellSort(array) {
-    let gap = 1;
-    while (gap < array.length / 5) {
-        gap = gap * 5 + 1;
-    }
-    for (gap; gap > 0; parseInt(gap / 5)) {
-        for (let i = gap; i < array.length; i++) {
-            const temp = array[i];
-            for (let j = i - gap; j >= 0 && array[j] > temp; j -= gap) {
-                array[j + gap] = array[j];
-            }
-            array[j + gap] = temp;
-        }
-    }
-    return array;
-}
-</code></pre>
-
-<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序是建立在归并操作的一种有效的排序算法，该算法是采用分治法的一个非常典型的应用。归并排序是一种稳定的排序算法，将已有序的子序列合并，等到一个完全有序的序列，即先使每个子序列有序，再使子序列段有序，若将两个有序表合并成一个有序表，称作2路合并</p>
-<pre><code>
-function mergeSort(array) {
-    if (array.length < 2) {
-        return array;
-    }
-    const middle = parseInt(array.length / 2);
-    const left = array.slice(0, middle);
-    const right = array.slice(middle);
-    return merge(test_run(left), test_run(right));
-}
-function merge(left, right) {
-    const newArray = [];
-    while (left.length && right.length) {
-        if (left[0] <= right[0])="" {="" newarray.push(left.shift());="" }="" else="" newarray.push(right.shift());="" while="" (left.length)="" (right.length)="" return="" newarray;="" <="" code=""></=></code></pre>
-
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序的基本思想是：通过一趟排序将待排记录分割成独立的两部分，其中一部分记录关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序</p>
-<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><pre><code>
-const quickSort = function (array) {
-    if (array.length <= 1)="" {="" return="" array;="" }="" const="" pivotindex="parseInt(array.length" 2);="" pivot="Number(array.splice(pivotIndex," 1));="" left="[];" right="[];" for="" (let="" i="0;" <="" array.length;="" i++)="" if="" (array[i]="" pivot)="" left.push(array[i]);="" else="" right.push(array[i]);="" quicksort(left).concat([pivot],="" quicksort(right));="" };="" code=""></=></code></pre>
-
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>其中 left = 0; right = array.length-1</p>
-<pre><code>
-function quickSort(array, left, right) {
-    if (left < right) {
-        let x = array[right], i = left - 1;
-        for (let j = left; j <= right;="" j++)="" {="" if="" (array[j]="" <="x)" i++;="" const="" temp="array[i];" array[i]="array[j];" array[j]="temp;" }="" quicksort(array,="" left,="" i="" -="" 1);="" +="" 1,="" right);="" return="" array;="" code=""></=></code></pre>
-
-<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>是指利用堆这种数据结构所涉及的一种排序算法，堆积是一个近似完全二叉树的结构，并满足堆积的性质：即子节点的键值或索引总是小于（或大于）它的父节点</p>
-<pre><code>
-function heapSort(array) {
-    let length = array.length;
-    for (let i = parseInt(array.length / 2) - 1; i >= 0; i--) {
-        heap(array, i, length);
-    }
-    for (let j = length - 1; j >= 1; j--) {
-        const temp = array[0];
-        array[0] = array[j];
-        array[j] = temp;
-        heap(array, 0, --length);
-    }
-    return array;
-}
-function heap(array, x, length) {
-    let l = 2 * x + 1, r = 2 * x + 2, largest = x;
-    if (l < length && array[l] > array[largest]) {
-        largest = l;
-    }
-    if (r < length && array[r] > array[largest]) {
-        largest = r;
-    }
-    if (largest != x) {
-        const temp = array[x];
-        array[x] = array[largest];
-        array[largest] = temp;
-        heap(array, largest, length);
-    }
-}
-</code></pre>
-
-<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>计数排序的核心在于输入的数据值转换为键存储在额外开辟的数组空间中，作为一种限行时间非要咋地的排序，计数排序要求输入的数据必须是由确定范围的整数。<br>计数排序是一种很稳定的排序算法，需要用到一个额外的数组C，其中第i个元素是待排序数组A中值等于i的元素的个数，然后根据数字C将A中的元素排到正确的位置上个，它只能对数组进行排序</p>
-<pre><code>
-function countSort(array) {
-    const newArray = [], C = [];
-    let min = array[0];
-    let max = array[0];
-    for (let i = 0; i < array.length; i++) {
-        if (min >= array[i]) {
-            min = array[i];
-        }
-        if (max <= array[i])="" {="" max="array[i];" }="" if="" (c[array[i]]="C[array[i]])" c[array[i]]++;="" else="" c[array[i]]="1;" for="" (let="" j="min;" <="" max;="" j++)="" c[j="" +="" 1]="(C[j" ||="" 0)="" (c[j]="" 0);="" k="array.length" -="" 1;="">= 0; k--) {
-        newArray[C[array[k]] - 1] = array[k];
-        C[array[k]]--;
-    }
-    return newArray;
-}
-</=></code></pre>
-
-<p>原文来自微信公众号前端大全中的《十大经典排序算法的 JS 版》</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/JS十大经典排序/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -653,10 +469,8 @@ function countSort(array) {
     
     
 
-    <div>
-      
-    </div>
-
+    
+    
     
 
     
@@ -706,7 +520,7 @@ function countSort(array) {
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="周贺朋">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -759,7 +573,6 @@ function countSort(array) {
                  <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
-                 <span class="post-meta-divider">|</span>
              </span>
           
 
@@ -814,18 +627,16 @@ function countSort(array) {
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -833,10 +644,8 @@ function countSort(array) {
     
     
 
-    <div>
-      
-    </div>
-
+    
+    
     
 
     
@@ -902,6 +711,10 @@ function countSort(array) {
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="周贺朋" />
             
               <p class="site-author-name" itemprop="name">周贺朋</p>
               <p class="site-description motion-element" itemprop="description">周贺朋の个人站，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面</p>
@@ -996,24 +809,21 @@ function countSort(array) {
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">周贺朋</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1.4k</span>
+  
 </div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
-
 
 
 
@@ -1111,6 +921,13 @@ function countSort(array) {
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1282,90 +1099,6 @@ function countSort(array) {
 
   
 
-  
-  	 <!-- custom analytics part create by xiamo -->
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-<script>AV.initialize("XmNF42nrV7sfyoJ2lPqfLtay-gzGzoHsz", "DeDEczG0cdHR8YhpUW4PWyGw");</script>
-<script>
-function showTime(Counter) {
-	var query = new AV.Query(Counter);
-	$(".leancloud_visitors").each(function() {
-		var url = $(this).attr("id").trim();
-		query.equalTo("url", url);
-		query.find({
-			success: function(results) {
-				if (results.length == 0) {
-					var content = $(document.getElementById(url)).text() + ': 0';
-					$(document.getElementById(url)).text(content);
-					return;
-				}
-				for (var i = 0; i < results.length; i++) {
-					var object = results[i];
-					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
-					$(document.getElementById(url)).text(content);
-				}
-			},
-			error: function(object, error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		});
-
-	});
-}
-
-function addCount(Counter) {
-	var Counter = AV.Object.extend("Counter");
-	url = $(".leancloud_visitors").attr('id').trim();
-	title = $(".leancloud_visitors").attr('data-flag-title').trim();
-	var query = new AV.Query(Counter);
-	query.equalTo("url", url);
-	query.find({
-		success: function(results) {
-			if (results.length > 0) {
-				var counter = results[0];
-				counter.fetchWhenSave(true);
-				counter.increment("time");
-				counter.save(null, {
-					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(counter, error) {
-						console.log('Failed to save Visitor num, with error message: ' + error.message);
-					}
-				});
-			} else {
-				var newcounter = new Counter();
-				newcounter.set("title", title);
-				newcounter.set("url", url);
-				newcounter.set("time", 1);
-				newcounter.save(null, {
-					success: function(newcounter) {
-					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(newcounter, error) {
-						console.log('Failed to create');
-					}
-				});
-			}
-		},
-		error: function(error) {
-			console.log('Error:' + error.code + " " + error.message);
-		}
-	});
-}
-$(function() {
-	var Counter = AV.Object.extend("Counter");
-	if ($('.leancloud_visitors').length == 1) {
-		addCount(Counter);
-	} else if ($('.post-title-link').length > 1) {
-		showTime(Counter);
-	}
-});
-</script>
-  
   undefined
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
